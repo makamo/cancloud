@@ -37,7 +37,8 @@ module.exports = {
   entry: [path.resolve(__dirname, "src/browser/index.js")],
   output: {
     path: __dirname + "/site",
-    filename: "js/[hash].js"
+    filename: "js/[hash].js",
+    publicPath: "/cancloud/" // Set the base URL for all assets
   },
   resolve: {
     extensions: [".js", ".jsx", ".less"]
@@ -106,7 +107,12 @@ module.exports = {
   },
   plugins: [htmlPlugin, copyPlugin, definePlugin],
   devServer: {
-    historyApiFallback: true,
-    contentBase: "./"
+    historyApiFallback: {
+      rewrites: [
+        { from: /^\/cancloud\/.*$/, to: '/cancloud/index.html' }
+      ]
+    },
+    contentBase: path.join(__dirname, 'site'),
+    publicPath: '/cancloud/'
   }
 };
