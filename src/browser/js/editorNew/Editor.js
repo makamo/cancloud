@@ -8,7 +8,7 @@ import web from "../web";
 
 
 // import editor and tools
-import {EditorSection} from "config-editor-base";
+import {EditorSection, OBDTool, FilterBuilderTool} from "config-editor-base";
 import {
   EncryptionModal,
   FilterModal,
@@ -75,6 +75,18 @@ class Editor extends React.Component {
 
   render() {
     let editorTools = [
+      {
+        name: "obd-modal",
+        comment: "OBD tool",
+        class: "fa fa-car",
+        modal: <OBDTool showAlert={this.props.showAlert} />,
+      },
+      {
+        name: "filter-builder-modal",
+        comment: "Filter builder",
+        class: "fa fa-sliders",
+        modal: <FilterBuilderTool showAlert={this.props.showAlert} deviceType="CANedge" />,
+      },
       {
         name: "encryption-modal",
         comment: "Encryption tool",
