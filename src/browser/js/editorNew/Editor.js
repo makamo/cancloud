@@ -8,7 +8,7 @@ import web from "../web";
 
 
 // import editor and tools
-import {EditorSection} from "config-editor-base";
+import {EditorSection, OBDTool, FilterBuilderTool} from "config-editor-base";
 import {
   EncryptionModal,
   FilterModal,
@@ -28,10 +28,12 @@ import * as actionsEditorS3 from "./actions";
 export const uiSchemaAry = [
   // "uischema-01.06.json | Simple",
   // "uischema-01.06.json | Advanced",
-  "uischema-01.07.json | Simple",
-  "uischema-01.07.json | Advanced",
-  "uischema-01.08.json | Simple",
-  "uischema-01.08.json | Advanced",
+  // "uischema-01.07.json | Simple",
+  // "uischema-01.07.json | Advanced",
+  // "uischema-01.08.json | Simple",
+  // "uischema-01.08.json | Advanced",
+  "uischema-01.09.json | Simple",
+  "uischema-01.09.json | Advanced"
 ];
 
 export const schemaAry = [
@@ -47,7 +49,13 @@ export const schemaAry = [
   "schema-01.08.json | CANedge3 GNSS",
   "schema-01.08.json | CANedge2 GNSS",
   "schema-01.08.json | CANedge1 GNSS",
+  "schema-01.09.json | CANedge2",
+  "schema-01.09.json | CANedge1",
+  "schema-01.09.json | CANedge3 GNSS",
+  "schema-01.09.json | CANedge2 GNSS",
+  "schema-01.09.json | CANedge1 GNSS"
 ];
+
 
 export const demoMode = false 
 
@@ -67,6 +75,18 @@ class Editor extends React.Component {
 
   render() {
     let editorTools = [
+      {
+        name: "obd-modal",
+        comment: "OBD tool",
+        class: "fa fa-car",
+        modal: <OBDTool showAlert={this.props.showAlert} />,
+      },
+      {
+        name: "filter-builder-modal",
+        comment: "Filter builder",
+        class: "fa fa-sliders",
+        modal: <FilterBuilderTool showAlert={this.props.showAlert} deviceType="CANedge" />,
+      },
       {
         name: "encryption-modal",
         comment: "Encryption tool",

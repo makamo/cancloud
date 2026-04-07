@@ -28,6 +28,7 @@ import web from "../web";
 import history from "../history";
 import { pathSlice } from "../utils";
 import { demoMode, demoDate } from "../utils";
+import packageJson from "../../../../package.json";
 
 export const SideBar = ({
   sidebarOpen,
@@ -51,7 +52,7 @@ export const SideBar = ({
 
 
           <div className="version-text sb-custom-version">
-            v05.09.01
+            v{packageJson.version}
             {demoMode ? (
               <div>
                 <br />
