@@ -24,8 +24,8 @@ ENV NODE_OPTIONS=--openssl-legacy-provider
 # Build the app
 RUN npm run build
 
-# Expose the port (example: 3000)
-EXPOSE 3000
+# Expose the port (example: 3333)
+EXPOSE 3333
 
 # Start the app using the `serve` command
-CMD ["serve", "-s", "site"]
+CMD ["serve", "-s", "site", "-l", "3333"]

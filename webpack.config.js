@@ -38,7 +38,7 @@ module.exports = {
   output: {
     path: __dirname + "/site",
     filename: "js/[hash].js",
-    publicPath: "/cancloud/" // Set the base URL for all assets
+    publicPath: "/" // Set the base URL for all assets
   },
   resolve: {
     extensions: [".js", ".jsx", ".less"]
